@@ -75,7 +75,7 @@ export default function InfiniteList({ navigation, propspage }) {
                   style={styles.realtyImage}
                   source={{
                     uri: realtyObject.thumbnailUrl,
-                  }}DEBU
+                  }}
                 />
               </View>
               <View>

@@ -1,32 +1,34 @@
 import React from "react";
 import { StyleSheet, View, Button, TextInput, ScrollView} from 'react-native';
 import axios from 'axios';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function AddAd() {
     function onPressAdd(){
-        axios.post("http://localhost:4200/add" ,{
-            thumbnailUrl: imageUrl,
-            lon: lon,
-            lat: lat,
-            square: square,
-            rooms: rooms,
-            floor: floor,
-            floorest: floorest,
-            price: price,
-            region: region,
-            city: city,
-            street: street,
-            numberOfHouse: numberOfHouse,
-            onChangeSquareKitchen: kitchen,
-            onChangeSquareRoom: roomSquare,
-            onChangeTypeOfHouse: typeOfHouse,
-            onChangeYearOfBuild: yearOfBuild,
-            onChangeEntrance: entrance,
-            onChangeElevator: elevator,
-            onChangeParkingSpace: parkingSpace
-
-        });
+        AsyncStorage.getItem("token").then((token) => {
+            axios.post("http://localhost:4200/add" ,{
+                thumbnailUrl: imageUrl,
+                lon: lon,
+                lat: lat,
+                square: square,
+                rooms: rooms,
+                floor: floor,
+                floorest: floorest,
+                price: price,
+                region: region,
+                city: city,
+                street: street,
+                numberOfHouse: numberOfHouse,
+                onChangeSquareKitchen: kitchen,
+                onChangeSquareRoom: roomSquare,
+                onChangeTypeOfHouse: typeOfHouse,
+                onChangeYearOfBuild: yearOfBuild,
+                onChangeEntrance: entrance,
+                onChangeElevator: elevator,
+                onChangeParkingSpace: parkingSpace,
+                userId: token
+            });
+    });
     }
     
     const [imageUrl, onChangeImageUrl] = React.useState("");

@@ -57,6 +57,8 @@ app.get('/user/:userId', (req, res) => {
     return false;
   })
   if (user){
+    const userAds = ads.filter((ad) => {return ad.userId === user.id});
+    user.ads = userAds;
     res.json(user)
   }
 })
@@ -126,6 +128,7 @@ app.get('/login', (req, res) => {
 app.post('/add', (req, res) => {
     let dataFromFile = fs.readFileSync('ads.json');
     const oldAds = JSON.parse(dataFromFile); 
+    req.body.id = uuid.v1();
     ads.push(req.body);
     oldAds.push(req.body);
     const dataForFile = JSON.stringify(oldAds, null, 4);
@@ -136,6 +139,25 @@ app.post('/add', (req, res) => {
 
     fs.writeFile('ads.json', dataForFile, 'utf8', callback)
     
+});
+app.post('/ad/:adId', (req, res) => {
+  const removedIndex = ads.findIndex((ad) => {
+    return ad.id === req.body.adId;
+  }); 
+  if (removedIndex > -1){
+    ads.splice(removedIndex, 1);
+    const dataForFile = JSON.stringify(ads, null, 4);
+
+      function callback(){
+        const userAds = ads.filter((ad) => {return ad.userId === req.body.user});
+        res.json(userAds);
+      }
+
+      fs.writeFile('ads.json', dataForFile, 'utf8', callback);
+  } else {
+    const userAds = ads.filter((ad) => {return ad.userId === req.body.user});
+    res.json(userAds);
+  }
 });
 app.post('/register', (req, res) => {
   if (req.body.password !== req.body.passwordConfirmation){
