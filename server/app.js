@@ -3,6 +3,7 @@ var cors = require('cors');
 const fs = require('fs');
 const uuid = require("uuid");
 var bodyParser = require('body-parser');
+const { error } = require('console');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const app = express();
 const port = 4200;
@@ -12,6 +13,9 @@ const ads = JSON.parse(dataFromFile);
 
 let dataFromFileUsers = fs.readFileSync('users.json');
 const users = JSON.parse(dataFromFileUsers);
+
+let dataFromFileRents = fs.readFileSync('rents.json');
+const rents = JSON.parse(dataFromFileRents);
 
 const corsOpts = {
     origin: '*',
@@ -106,7 +110,23 @@ app.get('/login', (req, res) => {
     })
   }
 })
-
+app.get('/rents/:userId', (req, res) => {
+  const userRents = rents.filter((rent) => {
+    if (rent.userId === req.params.userId){
+      return true;
+    }
+  });
+  userRents.forEach(userRent => {
+    userRent.addInfo = ads.find((ad) => {
+      if (userRent.adId === ad.id){
+        return true;
+      }
+    })
+  });
+  res.json({
+    rents: userRents
+  });
+})
 // app.post('/change', (req, res) => {
 //   if (oldUsers.find((elem) => {
 //     if (elem.login === req.body.login){
@@ -142,7 +162,7 @@ app.post('/add', (req, res) => {
 });
 app.post('/ad/:adId', (req, res) => {
   const removedIndex = ads.findIndex((ad) => {
-    return ad.id === req.body.adId;
+    return ad.id === req.params.adId;
   }); 
   if (removedIndex > -1){
     ads.splice(removedIndex, 1);
@@ -158,6 +178,45 @@ app.post('/ad/:adId', (req, res) => {
     const userAds = ads.filter((ad) => {return ad.userId === req.body.user});
     res.json(userAds);
   }
+});
+app.post('/rent', (req, res) => {
+  const time = new Date();
+  const userId = req.body.user;
+  const adId = req.body.adId;
+
+  const currentUser = users.find((user) => {
+    if (userId === user.id){
+      return true;
+    }
+  });
+  const currentAd = ads.find((ad) => {
+    if (adId === ad.id){
+      return true;
+    }
+  });
+  const newRent = {
+    timeStart: time,
+    userId: userId,
+    adId: adId,
+    active: true
+  };
+  const rentExist = rents.find((rent) => {
+    if (rent.adId === adId){
+      return true;
+    }
+  })
+  if (rentExist){
+    res.json({error: "Аренда уже существует."});
+    return;
+  }
+  rents.push(newRent);
+  const dataForFile = JSON.stringify(rents, null, 4);
+  
+  function callback(){
+    res.json({});
+  }
+
+  fs.writeFile('rents.json', dataForFile, 'utf-8', callback);
 });
 app.post('/register', (req, res) => {
   if (req.body.password !== req.body.passwordConfirmation){

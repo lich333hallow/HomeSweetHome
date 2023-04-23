@@ -3,11 +3,25 @@ import { StyleSheet, View, Text, Image, Button, ScrollView } from 'react-native'
 import { useEffect, useState, useContext } from 'react';
 import {AdsContext} from '../contexts/Ads'
 import axios from 'axios';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function DetailView() { 
   const context = useContext(AdsContext)
 
-  function onPressArenda(){}
+  function onPressArenda(adId){
+    AsyncStorage.getItem("token").then((token) => {
+      axios.post(`http://localhost:4200/rent`, {
+        adId: adId,
+        user: token
+      }).then((responseJson) => {
+        if (responseJson.data.error){
+          alert("Объект уже арендован.");
+        } else {
+          alert("Объект арендован.");
+        }
+      })
+    });
+  }
   
   function requestAd () {
     axios.get(`http://localhost:4200/ad/` + context.adId)
@@ -63,7 +77,7 @@ export default function DetailView() {
           </View>
 
           <Button
-              onPress={onPressArenda}
+              onPress={() => {onPressArenda(realtyObject.id)}}
               title="Арендовать"
               color="#841584"
               style={styles.button}

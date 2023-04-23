@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { StyleSheet, View, Button, TextInput, Text, Image, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LoginContext } from '../contexts/Login';
+import EmptyList from '../components/EmptyList';
 import axios from "axios";
 
 export default function Settings() {
@@ -30,6 +31,14 @@ export default function Settings() {
             });
         })
     }
+    function requestUserRents(){
+        AsyncStorage.getItem("token").then((token) =>{
+            axios.get("http://localhost:4200/rents/" + token)
+            .then((response) => {
+                onChangeMyRents(response.data.rents);
+            });
+        });
+    }
     function removeAd(id){
         AsyncStorage.getItem("token").then((token) => {
             axios.post("http://localhost:4200/ad/" + id, {user: token}).then((response) => {
@@ -41,10 +50,12 @@ export default function Settings() {
     const [login, onChangeLogin] = React.useState("");
     const [phoneNumber, onChangeNumber] = React.useState("");
     const [myAds, onChangeMyAds] = React.useState([]);
+    const [myRents, onChangeMyRents] = React.useState([]);
 
     useEffect(function () {
         requestUserData();
-      }, [])
+        requestUserRents();
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -78,7 +89,8 @@ export default function Settings() {
                 />
             </View>
             <View>
-                <Text>Мои объекты</Text>
+                <Text>Мои объекты - {myAds.length}</Text>
+                <EmptyList adsCount={myAds.length} endWord={"объявлений"}/>
                 {
                     myAds.map(function (realtyObject, index) {
                     return (
@@ -142,6 +154,17 @@ export default function Settings() {
                         </View>
                         </View>
                     );
+                    })
+                }
+            </View>
+            <View>
+                <Text>Мои аренды {myRents.length}</Text>
+                <EmptyList adsCount={myRents.length} endWord={"аренд"}/>
+                {
+                    myRents.map(function (rentObject, index) {
+                        return (
+                            <Text>Мои аренды</Text>
+                        )
                     })
                 }
             </View>

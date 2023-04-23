@@ -87,7 +87,8 @@
         "yearOfBuild": "206",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Подземная"
+        "parkingSpace": "Подземная",
+        "id": "maximId4"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/09/695/621/po-ul-komarova-113-omsk-jk-1265969060-7.jpg",
@@ -108,7 +109,8 @@
         "yearOfBuild": "2017",
         "entrance": "4",
         "elevator": "1",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId5"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/63/494/041/dom-po-ul-yakovleva-169-omsk-jk-1404943653-7.jpg",
@@ -130,28 +132,8 @@
         "yearOfBuild": "2013",
         "entrance": "5",
         "elevator": "1",
-        "parkingSpace": "Подземная"
-    },
-    {
-        "thumbnailUrl": "https://cdn-p.cian.site/images/07/588/831/sozvezdie-omsk-jk-1388857092-7.jpg",
-        "lat": "73.323566",
-        "lon": "55.014024",
-        "price": "4000",
-        "rooms": "2",
-        "floor": "8",
-        "floorest": "9",
-        "square": "45,8 ",
-        "region": "Омская область",
-        "city": "Омск",
-        "street": "улица 4-я Островская",
-        "numberOfHouse": "17А",
-        "kitchen": "19",
-        "roomSquare": "5 ",
-        "typeOfHouse": "Кирпичный",
-        "yearOfBuild": "2009",
-        "entrance": "3",
-        "elevator": "1",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Подземная",
+        "id": "maximId6"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/8/654/192/amurskiy2-omsk-jk-291456847-7.jpg",
@@ -172,7 +154,8 @@
         "yearOfBuild": "2020",
         "entrance": "6",
         "elevator": "3",
-        "parkingSpace": "Подземная"
+        "parkingSpace": "Подземная",
+        "id": "maximId7"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/23/003/931/ul-2ya-tramvaynaya-39-port-artur-mkr-jk-1393003239-7.jpg",
@@ -193,7 +176,8 @@
         "yearOfBuild": "2005",
         "entrance": "5",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId8"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/06/530/801/angara-omsk-jk-1080356042-7.jpg",
@@ -214,7 +198,8 @@
         "yearOfBuild": "2009",
         "entrance": "5",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId9"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/68/174/911/zolotoy-parus-omsk-jk-1194718606-7.jpg",
@@ -235,7 +220,8 @@
         "yearOfBuild": "2019",
         "entrance": "2",
         "elevator": "1",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId10"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/1/343/457/stargorod-omsk-jk-754343100-7.jpg",
@@ -256,7 +242,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId11"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/79/337/901/omsk-ulmendeleeva44-omsk-jk-1097339704-7.jpg",
@@ -277,7 +264,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId12"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/83/730/801/pribrezhnyy2-omsk-jk-1080373816-7.jpg",
@@ -298,7 +286,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId13"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/1/589/792/berezovaya-roshca-omsk-jk-297985142-7.jpg",
@@ -319,7 +308,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId14"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/5/160/003/mkr-volna-omsk-jk-300061548-7.jpg",
@@ -340,7 +330,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId15"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/3/266/919/garmoniya-zhizni-omsk-jk-919662305-7.jpg",
@@ -361,7 +352,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId16"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/1/124/892/po-ul-pos-biofabrika-posbiofabrika-jk-298421199-7.jpg",
@@ -382,7 +374,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId17"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/1/871/337/cheredovyy-omsk-jk-733178138-7.jpg",
@@ -403,7 +396,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId18"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/7/128/733/tarskaya-krepost-2-omsk-jk-337821796-7.jpg",
@@ -424,7 +418,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId19"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/40/440/801/na-ul-uspenskogo-omsk-jk-1080440473-7.jpg",
@@ -438,7 +433,8 @@
         "region": "Омская область",
         "city": "Омск",
         "street": "улица Бархатова",
-        "numberOfHouse": "10"
+        "numberOfHouse": "10",
+        "id": "maximId20"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/08/595/221/zelenaya-reka-omsk-jk-1225958055-6.jpg",
@@ -459,7 +455,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId21"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/33/681/831/dom-na-eniseyskoy-omsk-jk-1381863362-6.jpg",
@@ -480,7 +477,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId22"
     },
     {
         "title": "ЗаголовокA",
@@ -502,7 +500,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId23"
     },
     {
         "title": "Дом кота",
@@ -524,7 +523,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId25"
     },
     {
         "title": "Красный путь 135",
@@ -546,7 +546,8 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId26"
     },
     {
         "thumbnailUrl": "https://cdn-p.cian.site/images/81/267/841/kvartira-omsk-ulica-sazonova-1487621874-1.jpg",
@@ -567,6 +568,29 @@
         "yearOfBuild": "2009",
         "entrance": "4",
         "elevator": "2",
-        "parkingSpace": "Наземная"
+        "parkingSpace": "Наземная",
+        "id": "maximId27"
+    },
+    {
+        "thumbnailUrl": "https://cdn-p.cian.site/images/07/588/831/sozvezdie-omsk-jk-1388857092-7.jpg",
+        "lat": "73.323566",
+        "lon": "55.014024",
+        "price": "4000",
+        "rooms": "2",
+        "floor": "8",
+        "floorest": "9",
+        "square": "45,8 ",
+        "region": "Омская область",
+        "city": "Омск",
+        "street": "улица 4-я Островская",
+        "numberOfHouse": "17А",
+        "kitchen": "19",
+        "roomSquare": "5 ",
+        "typeOfHouse": "Кирпичный",
+        "yearOfBuild": "2009",
+        "entrance": "3",
+        "elevator": "1",
+        "parkingSpace": "Наземная",
+        "id": "maximId28"
     }
 ]

@@ -4,5 +4,11 @@
         "login": "Artem",
         "password": "12345678",
         "phoneNumber": "+79135401044"
+    },
+    {
+        "id": "f69fb150-e1be-11ed-af65-cd394f2c61c9",
+        "login": "maksim@arendator.ru",
+        "password": "1234567",
+        "phoneNumber": "+79135431232"
     }
 ]
