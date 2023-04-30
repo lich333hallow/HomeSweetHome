@@ -117,7 +117,7 @@ app.get('/rents/:userId', (req, res) => {
     }
   });
   userRents.forEach(userRent => {
-    userRent.addInfo = ads.find((ad) => {
+    userRent.adInfo = ads.find((ad) => {
       if (userRent.adId === ad.id){
         return true;
       }
@@ -198,6 +198,7 @@ app.post('/rent', (req, res) => {
     timeStart: time,
     userId: userId,
     adId: adId,
+    id: uuid.v1(),
     active: true
   };
   const rentExist = rents.find((rent) => {
@@ -217,6 +218,22 @@ app.post('/rent', (req, res) => {
   }
 
   fs.writeFile('rents.json', dataForFile, 'utf-8', callback);
+});
+app.post('/rent/update/:rentId', (req, res) => {
+  const updatedRent = rents.find((rent) => {
+    if (req.params.rentId === rent.id){
+      return true;
+    }
+  });
+  const endRentTime = new Date();
+  updatedRent.timeEnd = endRentTime;
+  const data = JSON.stringify(rents, null, 4);
+
+  function callback(){
+    res.json({rents})
+  }
+
+  fs.writeFile('rents.json', data, 'utf-8', callback);
 });
 app.post('/register', (req, res) => {
   if (req.body.password !== req.body.passwordConfirmation){

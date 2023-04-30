@@ -3,6 +3,8 @@ import { StyleSheet, View, Button, TextInput, Text, Image, ScrollView } from 're
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LoginContext } from '../contexts/Login';
 import EmptyList from '../components/EmptyList';
+import StopRentButton from "../components/StopRentButton";
+import Price from "../components/Price";
 import axios from "axios";
 
 export default function Settings() {
@@ -44,6 +46,11 @@ export default function Settings() {
             axios.post("http://localhost:4200/ad/" + id, {user: token}).then((response) => {
                 onChangeMyAds(response.data)
             });
+        })
+    }
+    function stopRent(rentId){
+        axios.post("http://localhost:4200/rent/update/" + rentId).then((response) => {
+            console.log(response.data)
         })
     }
 
@@ -106,13 +113,7 @@ export default function Settings() {
                         </View>
                         <View>
                             <View>
-                            <View>
-                                <Text
-                                style={styles.price}
-                                >
-                                {realtyObject.price} ₽ / сутки
-                                </Text>
-                            </View>
+                            <Price price={realtyObject.price}/>
                             <View
                                 style={styles.charContainer}
                             >
@@ -163,7 +164,45 @@ export default function Settings() {
                 {
                     myRents.map(function (rentObject, index) {
                         return (
-                            <Text>Мои аренды</Text>
+                            <View style={styles.mainContainer}>
+                        <View
+                        style={styles.imageWrapper}>
+                            <Image
+                            style={styles.realtyImage}
+                            source={{
+                                uri: rentObject.adInfo.thumbnailUrl,
+                            }}
+                            />
+                        </View>
+                        <View>
+                            <View>
+                            <Price 
+                                timeStart={rentObject.timeStart}
+                                timeEnd={rentObject.timeEnd}
+                                price={rentObject.adInfo.price}
+                            />
+                            <View
+                                style={styles.charContainer}
+                            >
+
+                            </View>
+                            <View>
+                                <Text
+                                style={styles.address}
+                                >
+                                {rentObject.adInfo.address}
+                                </Text>
+                            </View>
+                            <View></View>
+                            </View>
+                            <StopRentButton 
+                                timeEnd={rentObject.timeEnd} 
+                                stopRent={stopRent} 
+                                rentId={rentObject.id}
+                                timeStart={rentObject.timeStart}
+                            />
+                        </View>
+                        </View>
                         )
                     })
                 }

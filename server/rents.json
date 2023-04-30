@@ -3,6 +3,38 @@
         "timeStart": "2023-04-23T11:21:48.821Z",
         "userId": "f69fb150-e1be-11ed-af65-cd394f2c61c9",
         "adId": "maximId1",
+        "id": "maximId01",
+        "active": true,
+        "adInfo": {
+            "thumbnailUrl": "https://cdn-p.cian.site/images/07/648/331/1338467099-4.jpg",
+            "lat": "73.323566",
+            "lon": "55.014024",
+            "price": "3000",
+            "rooms": "1",
+            "floor": "2",
+            "floorest": "5",
+            "square": "29,4 ",
+            "region": "Омская область",
+            "city": "Омск",
+            "street": "улица Бархатова",
+            "numberOfHouse": "10",
+            "kitchen": "25",
+            "roomSquare": "14 ",
+            "typeOfHouse": "Кирпичный",
+            "yearOfBuild": "2009",
+            "entrance": "4",
+            "elevator": "2",
+            "parkingSpace": "Наземная",
+            "userId": "0bb464f0-d6c0-11ed-a0cd-137eb3624fd5",
+            "id": "maximId1"
+        },
+        "timeEnd": "2023-04-30T10:33:56.957Z"
+    },
+    {
+        "timeStart": "2023-04-30T10:49:03.626Z",
+        "userId": "f69fb150-e1be-11ed-af65-cd394f2c61c9",
+        "adId": "maximId2",
+        "id": "9f63bea0-e744-11ed-95d2-e792e673d395",
         "active": true
     }
 ]
