@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import moment from "moment";
 
 export default function Price(props) {
-    const price = props.price;
+    const price = Math.round(props.price);
     const timeStart = props.timeStart;
     const timeEnd = props.timeEnd;
     if (!timeEnd && !timeStart ){
@@ -18,9 +18,9 @@ export default function Price(props) {
     }
         const momentStart = moment(timeStart);
         const momentEnd = timeEnd ? moment(timeEnd) : moment(new Date());
-        const diff = momentEnd.diff(momentStart, "hours");
-        const pricePerHour = price / 24;
-        const endPrice = pricePerHour * diff;
+        const diff = momentEnd.diff(momentStart, "minutes");
+        const pricePerMinute = price / 24 / 60;
+        const endPrice = Math.round(pricePerMinute * diff);
         return (
             <View>
                 <Text

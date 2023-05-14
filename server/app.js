@@ -202,7 +202,7 @@ app.post('/rent', (req, res) => {
     active: true
   };
   const rentExist = rents.find((rent) => {
-    if (rent.adId === adId){
+    if (rent.adId === adId && rent.active === true){
       return true;
     }
   })
@@ -227,6 +227,7 @@ app.post('/rent/update/:rentId', (req, res) => {
   });
   const endRentTime = new Date();
   updatedRent.timeEnd = endRentTime;
+  updatedRent.active = false;
   const data = JSON.stringify(rents, null, 4);
 
   function callback(){

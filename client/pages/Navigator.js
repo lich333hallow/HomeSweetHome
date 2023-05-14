@@ -3,6 +3,7 @@ import InfiniteView from './InfiniteView';
 import MapView from './MapView';
 import AddAd from './AddAd';
 import Settings from './Settings';
+import RentsMenu from './RentsMenu';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -23,6 +24,8 @@ export default function NavigatorComponent() {
               return <Ionicons name="map-outline"/>
             } else if (route.name === "Добавить") {
               return <Ionicons name="add-circle-outline"/>
+            } else if (route.name === "Аренды") {
+              return <Ionicons name="home-outline"/>
             } else if (route.name === "Настройки") {
               return <Ionicons name="settings-outline"/>
             }
@@ -55,6 +58,15 @@ export default function NavigatorComponent() {
               },
             }}
           />
+          <Tab.Screen
+           name="Аренды"
+           component={RentsMenu}
+           listeners={{
+             tabPress: e => {
+               context.setAdId(null);
+             },
+           }}
+         />
            <Tab.Screen
             name="Настройки"
             component={Settings}

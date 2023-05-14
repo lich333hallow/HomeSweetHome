@@ -68,7 +68,7 @@ export default function InfiniteList({ navigation, propspage }) {
       {
         realtyObjects.map(function (realtyObject, index) {
           return (
-            <View style={styles.mainContainer}>
+            <View key={realtyObject.id} style={styles.mainContainer}>
               <View
               style={styles.imageWrapper}>
                 <Image
