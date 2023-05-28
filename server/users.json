@@ -3,12 +3,27 @@
         "id": "0bb464f0-d6c0-11ed-a0cd-137eb3624fd5",
         "login": "Artem",
         "password": "12345678",
-        "phoneNumber": "+79135401044"
+        "phoneNumber": "+79135401044",
+        "lastName": "Kovalev",
+        "name": "Artem",
+        "secondName": "Alekseevich"
     },
     {
         "id": "f69fb150-e1be-11ed-af65-cd394f2c61c9",
         "login": "maksim@arendator.ru",
         "password": "1234567",
-        "phoneNumber": "+79135431232"
+        "phoneNumber": "+79135431232",
+        "lastName": "Kovalev",
+        "name": "Maksim",
+        "secondName": "Alekseevich"
+    },
+    {
+        "id": "95e01ae0-f7ca-11ed-b88c-ef7f651b8e33",
+        "login": "Tima@email.ru",
+        "password": "12345678",
+        "phoneNumber": "89835673081",
+        "lastName": "Kovalev",
+        "name": "Timofey",
+        "secondName": "Alekseevich"
     }
 ]

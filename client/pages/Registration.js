@@ -16,7 +16,10 @@ export default function Registration({ navigation }) {
                 login: login,
                 password: password,
                 passwordConfirmation: passwordConfirmation,
-                phoneNumber: phoneNumber
+                phoneNumber: phoneNumber,
+                lastName : lastName,
+                name : name,
+                secondName : secondName
             }).then((response) => {
                 if (response.data.error){
                     //to do show error
@@ -35,6 +38,9 @@ export default function Registration({ navigation }) {
     const [password, onChangePassword] = React.useState("");
     const [passwordConfirmation, onChangePasswordConfirmation] = React.useState("");
     const [phoneNumber, onChangeNumber] = React.useState("");
+    const [lastName, onChangeLastName] = React.useState("");
+    const [name, onChangeName] = React.useState("");
+    const [secondName, onChangeSecondName] = React.useState("");
     return (
         <View style={styles.container}>
             <Image
@@ -64,6 +70,24 @@ export default function Registration({ navigation }) {
                 onChangeText={onChangePasswordConfirmation}
                 value={passwordConfirmation}
                 placeholder="Подтвердить пароль"
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeLastName}
+                value={lastName}
+                placeholder="Фамилия"
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeName}
+                value={name}
+                placeholder="Имя"
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeSecondName}
+                value={secondName}
+                placeholder="Отчество"
             />
             
             <View style={styles.button}>

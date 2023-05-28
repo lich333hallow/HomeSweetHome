@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 var cors = require('cors');
 const fs = require('fs');
 const uuid = require("uuid");
@@ -236,6 +237,27 @@ app.post('/rent/update/:rentId', (req, res) => {
 
   fs.writeFile('rents.json', data, 'utf-8', callback);
 });
+app.get('/getStat/:adId', (req, res) => {
+  const adId = req.params.adId;
+  const adRents = rents.filter(rent => rent.adId === adId);
+  if (adRents.length == 0) {
+    res.json({error: "Нет аренд"});
+  }
+  adRents.forEach((rent) => {
+    const timeStart = moment(rent.timeStart);
+    const timeEnd = moment(rent.timeEnd);
+    const rentTime = timeEnd.diff(timeStart, "minutes");
+    const cost = Math.round(rentTime / 24 / 60 * rent.adInfo.price);
+    rent.cost = cost;
+    rent.user = users.find(user => user.id === rent.userId);
+    delete rent.user.password;
+    rent.ad = ads.find(ad => ad.id === adId);
+  });
+  res.json({
+    ad: ads.find(ad => ad.id === adId),
+    rents: adRents,
+  });
+});
 app.post('/register', (req, res) => {
   if (req.body.password !== req.body.passwordConfirmation){
     res.json({
@@ -263,7 +285,10 @@ app.post('/register', (req, res) => {
         id: uuid.v1(),
         login: req.body.login,
         password: req.body.password,
-        phoneNumber: req.body.phoneNumber
+        phoneNumber: req.body.phoneNumber,
+        lastName: req.body.lastName,
+        name: req.body.name,
+        secondName: req.body.secondName
       });
       const dataForFile = JSON.stringify(oldUsers, null, 4);
 

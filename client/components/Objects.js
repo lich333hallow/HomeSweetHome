@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, Text, Image, ScrollView } from 'react-native'
 import EmptyList from '../components/EmptyList';
 import Price from "../components/Price";
 
-export default function RentsMenu({myAds, removeAd}) { 
+export default function RentsMenu({myAds, removeAd,showStat}) { 
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -59,11 +59,21 @@ export default function RentsMenu({myAds, removeAd}) {
                             <View style={styles.buttonWrapper}>
                                 <Button
                                     onPress={() => {
+                                        showStat(realtyObject.id);
+                                    }}
+                                    title="Посмотреть"
+                                    color="#841584"
+                                    accessibilityLabel="Посмотреть"
+                                />  
+                            </View>
+                            <View style={styles.buttonWrapper}>
+                                <Button
+                                    onPress={() => {
                                         removeAd(realtyObject.id);
                                     }}
                                     title="Удалить"
                                     color="#e31235"
-                                    accessibilityLabel="Кнопка для Посмотреть"
+                                    accessibilityLabel="Удалить"
                                 />  
                             </View>
                         </View>

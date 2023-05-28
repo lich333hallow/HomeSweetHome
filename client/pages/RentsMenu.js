@@ -1,10 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import { StyleSheet, View, ScrollView, Switch, Text } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LoginContext } from '../contexts/Login';
 import axios from "axios";
-import RentsManager from "../components/RentsManager";
-import SwitchTextManager from "../components/SwitchTextManager";
+import ObjectStatOrRentsManager from "../components/ObjectStatOrRentManager";
 
 export default function RentsMenu() {
     const context = useContext(LoginContext)
@@ -31,6 +30,13 @@ export default function RentsMenu() {
             });
         })
     }
+    function showStat(id){
+        setObjectId(id)
+        onChangeShowObjectStat(true);
+    }
+    function backButtonClick(){
+        onChangeShowObjectStat(false);
+    }
     function stopRent(rentId){
         axios.post("http://localhost:4200/rent/update/" + rentId).then((response) => {
             console.log(response.data)
@@ -39,6 +45,8 @@ export default function RentsMenu() {
     const [myAds, onChangeMyAds] = React.useState([]);
     const [myRents, onChangeMyRents] = React.useState([]);
     const [showRents, onChangeShowRents] = React.useState(true);
+    const [showObjectStat, onChangeShowObjectStat] = React.useState(false);
+    const [objectId, setObjectId] = React.useState(null);
 
     useEffect(function () {
         requestUserData();
@@ -48,25 +56,18 @@ export default function RentsMenu() {
     return (
         <View style={styles.container}>
             <ScrollView> 
-                <View style={styles.switchContainer}>   
-                    <Switch 
-                        style={styles.switch}
-                        trackColor={{false: 'rgb(227, 18, 53)', true: '#841584'}}
-                        thumbColor={'#fff'}
-                        activeThumbColor={'#fff'}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={onChangeShowRents}
-                        value={showRents}
-                    />
-                    <SwitchTextManager showRents={showRents}/>
-                </View>      
-                <RentsManager 
+                <ObjectStatOrRentsManager 
+                    showObjectStat={showObjectStat}
+                    onChangeShowRents={onChangeShowRents}
+                    showRents={showRents}
                     myAds={myAds}
                     removeAd={removeAd}
                     myRents={myRents}
                     stopRent={stopRent}
-                    showRents={showRents}
-                />
+                    showStat={showStat}
+                    backButtonClick={backButtonClick}
+                    objectId={objectId}
+                />   
             </ScrollView>
         </View>
     );
@@ -76,14 +77,5 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: "center",
         height: "100%"
-    },
-    switchContainer: {
-        display: "flex",
-        flexDirection: "row",
-        margin: 16
-
-    },
-    switch: {
-        marginRight: 5
-    }
+    } 
 });

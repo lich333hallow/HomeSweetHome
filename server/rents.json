@@ -121,5 +121,12 @@
             "userId": "0bb464f0-d6c0-11ed-a0cd-137eb3624fd5",
             "id": "maximId1"
         }
+    },
+    {
+        "timeStart": "2023-05-21T11:29:53.505Z",
+        "userId": "95e01ae0-f7ca-11ed-b88c-ef7f651b8e33",
+        "adId": "maximId12",
+        "id": "ce4e5d10-f7ca-11ed-b88c-ef7f651b8e33",
+        "active": true
     }
 ]
